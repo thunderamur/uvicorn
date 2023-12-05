@@ -314,6 +314,9 @@ class Server:
             await server.wait_closed()
 
     def install_signal_handlers(self) -> None:
+        if not self.config.handle_signals:
+            return
+
         if threading.current_thread() is not threading.main_thread():
             # Signals can only be listened to from the main thread.
             return

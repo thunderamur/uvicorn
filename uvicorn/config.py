@@ -235,6 +235,7 @@ class Config:
         headers: Optional[List[Tuple[str, str]]] = None,
         factory: bool = False,
         h11_max_incomplete_event_size: Optional[int] = None,
+        handle_signals: bool = True,
     ):
         self.app = app
         self.host = host
@@ -280,6 +281,7 @@ class Config:
         self.encoded_headers: List[Tuple[bytes, bytes]] = []
         self.factory = factory
         self.h11_max_incomplete_event_size = h11_max_incomplete_event_size
+        self.handle_signals = handle_signals
 
         self.loaded = False
         self.configure_logging()
